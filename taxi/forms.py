@@ -62,6 +62,7 @@ class DriverSearchForm(forms.Form):
         )
     )
 
+
 class CarSearchForm(forms.Form):
     model = forms.CharField(
         max_length=255,
@@ -71,6 +72,7 @@ class CarSearchForm(forms.Form):
             attrs={"placeholder": "Search by model"}
         )
     )
+
 
 class ManufacturerSearchForm(forms.Form):
     name = forms.CharField(

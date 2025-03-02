@@ -91,12 +91,12 @@ class ToggleAssignToCarPrivateTest(TestCase):
         )
 
     def test_toggle_assign_view_assigns_driver_correctly(self):
-        response = self.client.get(self.url)
+        self.client.get(self.url)
         self.assertIn(self.user, self.car.drivers.all())
 
     def test_toggle_assign_view_unassigns_driver_correctly(self):
         self.car.drivers.add(self.user)
-        response = self.client.get(self.url)
+        self.client.get(self.url)
         self.assertNotIn(self.user, self.car.drivers.all())
 
     def test_toggle_assign_view_redirect_is_correct(self):

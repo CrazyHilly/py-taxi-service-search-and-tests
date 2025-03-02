@@ -76,7 +76,6 @@ class CarModelTest(TestCase):
         )
         car.drivers.add(driver)
 
-
     def test_car_str(self):
         car = Car.objects.get(id=1)
         self.assertEqual(str(car), f"{car.model}")

@@ -7,15 +7,15 @@ from taxi.models import Manufacturer, Driver
 
 class CarCreationFormTests(TestCase):
     def setUp(self):
-        driver = get_user_model().objects.create_user(
+        get_user_model().objects.create_user(
             username="TestUser",
             password="password",
             email="1@1.com",
             license_number="AAA11111",
         )
         manufacturer = Manufacturer.objects.create(
-            name = "TestManufacturer",
-            country = "TestCountry",
+            name="TestManufacturer",
+            country="TestCountry",
         )
         self.form_data = {
             "model": "test_model",
@@ -56,7 +56,7 @@ class DriverFormTests(TestCase):
             self.assertIn("license_number", form.errors)
 
     def test_driver_license_update_form_is_valid(self):
-        driver = get_user_model().objects.create_user(
+        get_user_model().objects.create_user(
             username="test_user",
             password="password",
             email="test@example.com",
@@ -68,7 +68,7 @@ class DriverFormTests(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_driver_license_update_form_is_not_valid(self):
-        driver = get_user_model().objects.create_user(
+        get_user_model().objects.create_user(
             username="test_user",
             password="password",
             email="test@example.com",

@@ -63,7 +63,7 @@ class DriverListViewPrivateTest(TestCase):
         self.assertTemplateUsed(self.response, self.template)
 
     def test_driver_list_view_pagination_is_correct(self):
-        self.assertTrue(self.response.context["is_paginated"] == True)
+        self.assertTrue(self.response.context["is_paginated"])
         self.assertEqual(
             len(self.response.context[self.context_name]),
             self.num_per_page
@@ -163,7 +163,9 @@ class DriverCreateViewPrivateTest(TestCase):
         ))
         self.assertEqual(new_entry.first_name, self.post_data["first_name"])
         self.assertEqual(new_entry.last_name, self.post_data["last_name"])
-        self.assertEqual(new_entry.license_number, self.post_data["license_number"])
+        self.assertEqual(
+            new_entry.license_number, self.post_data["license_number"]
+        )
         self.assertEqual(new_entry.username, self.post_data["username"])
 
 

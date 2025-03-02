@@ -19,7 +19,9 @@ RELATIONAL_FIELDS = {
 }
 # Parameters that will be passed to the instance creation functions.
 # Don't change the order!
-CREATION_PARAMS = (MODEL, NON_RELATIONAL_FIELDS, RELATIONAL_FIELDS, UNIQUE_FIELDS)
+CREATION_PARAMS = (
+    MODEL, NON_RELATIONAL_FIELDS, RELATIONAL_FIELDS, UNIQUE_FIELDS
+)
 
 LIST_URL = f"{APP_NAME}:{MODEL_NAME}-list"
 DETAIL_URL = f"{APP_NAME}:{MODEL_NAME}-detail"
@@ -60,7 +62,7 @@ class CarListViewPrivateTest(TestCase):
         self.assertTemplateUsed(self.response, self.template)
 
     def test_car_list_view_pagination_is_correct(self):
-        self.assertTrue(self.response.context["is_paginated"] == True)
+        self.assertTrue(self.response.context["is_paginated"])
         self.assertEqual(
             len(self.response.context[self.context_name]),
             self.num_per_page
