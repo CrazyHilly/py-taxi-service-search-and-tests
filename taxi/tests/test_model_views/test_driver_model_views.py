@@ -196,8 +196,6 @@ class DriverLicenseUpdateViewPrivateTest(TestCase):
             "Updated", NON_RELATIONAL_FIELDS, RELATIONAL_FIELDS
         )
         post_data["license_number"] = "AAA22222"
-        post_data["password1"] = "AAA22222"
-        post_data["password2"] = "AAA22222"
         response_post = self.client.post(self.url, post_data)
         self.assertEqual(response_post.status_code, 302)
         self.assertRedirects(response_post, reverse(LIST_URL))

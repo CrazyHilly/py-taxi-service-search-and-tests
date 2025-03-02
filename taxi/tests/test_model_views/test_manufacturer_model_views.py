@@ -68,7 +68,7 @@ class ManufacturerListViewPrivateTest(TestCase):
             self.num_per_page
         )
 
-    def test_car_list_view_displays_all_items(self):
+    def test_manufacturer_list_view_displays_all_items(self):
         num_pages = self.response.context["paginator"].num_pages
         response = self.client.get(self.url + f"?page={num_pages}")
         self.assertEqual(

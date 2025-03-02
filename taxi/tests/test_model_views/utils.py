@@ -65,7 +65,7 @@ def create_related_objects(relational_fields):
             module = import_module(
                 f"taxi.tests.test_model_views.test_{model_name}_model_views"
             )
-            return create_model_instance(
+            create_model_instance(
                 model,
                 module.NON_RELATIONAL_FIELDS,
                 module.RELATIONAL_FIELDS,
